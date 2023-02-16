@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>Introducción a VueJS</title>
-        <meta name="author" content="">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Introducción a VueJS</title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-    <body>
+<body>
 
-        <h1 id="autor">Autor: TU NOMBRE AQUÍ</h1>
+    <h1 id="autor">Autor: Diego</h1>
 
-        <!-- https://vuejs.org/v2/guide/index.html -->
-        <div id="app">
+    <!-- https://vuejs.org/v2/guide/index.html -->
+    <div id="app">
+        <div class="container-fluid">
+            <div class="jumbotron bg-light p-5">
+                <h1 id="title">{{col.collection.title}}</h1>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div v-for="card in col.collection.items" class="card col-lg-4">
+                    <div v-for="item in card.data">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.prompt}}</h5>
+                            <p class="card-text">{{item.value}}</p>
+                        </div>
+                    </div>
+                    <a v-bind:href="card in col.collection.items.href" class="btn btn-primary w-25 card-link m-2" target="_blank">Ver</a>
+                </div>
+            </div>
+        </div>
             <!--
                  TODO: Mostrar datos del objeto collection. Ver archivo ./js/script.js
                - Cargar la librería de VueJS y el script ./js/script.js al final de la etiqueta <body>
@@ -27,9 +45,11 @@
                    - El término <dt> será la propiedad "prompt"
                    - La definición <dd> será la propiedad "value"
             -->
-
         </div>
-
-    </body>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="./js/script.js"></script>
+</body>
 
 </html>
