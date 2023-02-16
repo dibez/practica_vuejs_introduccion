@@ -29,7 +29,7 @@
                             <p class="card-text">{{item.value}}</p>
                         </div>
                     </div>
-                    <a v-bind:href="card in col.collection.items.href" class="btn btn-primary w-25 card-link m-2" target="_blank">Ver</a>
+                    <a :href="card.href" class="btn btn-primary w-25 card-link m-2" target="_blank">Ver</a>
                 </div>
             </div>
         </div>
